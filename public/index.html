@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Closed Caption Haiku</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /*html,
+    body {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .haiku {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family: arial;
+      font-size: 30px;
+      line-height: 2;
+      letter-spacing: 2px;
+    }*/
+  </style>
+</head>
+
+<body>
+  <form action="get-haiku" method="POST" class="crt">
+    <label for="">Enter a movie<br>or serie title</label>
+    <input type="text" name="q" autofocus>
+    <button type="submit">Make a Haiku →</button>
+  </form>
+  <script>
+    (function () {
+
+      // tiny-dom
+      function $(n) { var c = document.querySelector(n); return c && (c.on = function (n, t) { return c.addEventListener.call(c, n, function (n) { t.call(c, n) }) }), c } function $$(n) { function e(n) { [].forEach.call(this, n) } var l = n; return n && "string" == typeof n && (l = document.querySelectorAll(n)), { each: function (t, c) { if (l instanceof NodeList) e.call(l, function (n) { t.call(c || n) }); else for (var n in l) l.hasOwnProperty(n) && t.call(c || l[n], l[n], n, l) }, on: function (t, c) { e.call(l, function (n) { n.addEventListener.call(n, t, c.bind(n)) }) } } }
+
+      const indexToLetter = ['', 'b', 'c']
+
+      const form = $('form')
+      form.on('submit', e => {
+        e.preventDefault()
+        const q = $('input').value.trim()
+
+        if(q === ''){
+          $('form > input').classList.add('error')
+          return
+        }
+
+        form.innerHTML = '<div>Working...</div>'
+        getHaiku(q).then(haiku => {
+          form.classList.add('haiku')
+          form.innerHTML = haiku.map((line, i) => {
+            return `
+            <div class="glitch-wrapper ${indexToLetter[i]}">
+              <div class="glitch" data-text="${line}">
+              ${line}
+              </div>
+            </div>`
+          }).join('') + '<a href="/" class="try-again">Try another</a>'
+        }).catch(cantGenerateHaiku)
+      })
+
+      function getHaiku(movieName) {
+        return fetch('/generate-haiku?movieName='+encodeURIComponent(movieName), {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        }).then(r => r.json())
+          .then(data => {
+            if(data.haiku) return data.haiku
+            throw new Error('no haiku')
+          })  
+          .catch(err => {
+            console.log(err)
+            cantGenerateHaiku()
+          })
+      }
+
+      function cantGenerateHaiku(){
+        form.innerHTML = 'Woops, cant find anything for this one<br><br><a href="/" class="try-again">Try another</a>'
+      }
+
+    }())
+  </script>
+</body>
+
+</html>

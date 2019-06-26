@@ -35,7 +35,7 @@ class HaikuGenerator {
   }
 
   makeHaikuFromHILines(hiLines) {
-    return sampleSize(hiLines, 4)
+    return sampleSize(hiLines, 3)
   }
 }
 

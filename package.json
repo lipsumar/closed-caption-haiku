@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "build": "lessc --js public/less/style.less public/css/style.css",
     "backup:create": "BU_FILE=cchaiku-dump-$(date +%Y-%m-%dT%H:%M:%S).gz ; ssh dokku \"dokku mongo:export cchaiku > $BU_FILE\" && scp dokku:/root/$BU_FILE ./backups/"
   },
   "keywords": [],
@@ -18,6 +19,7 @@
     "axios": "^0.19.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "lessc": "^1.0.2",
     "lodash.samplesize": "^4.2.0",
     "lodash.uniq": "^4.5.0",
     "mongodb": "^3.2.7",

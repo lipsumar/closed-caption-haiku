@@ -39,7 +39,7 @@ class OpenSubtitlesStrategy {
       console.log(`=> ${lines.length} lines`)
       const hiLines = lib.filterHILines(lines)
       console.log(`=> ${hiLines.length} hiLines`)
-      if(hiLines.length >= 4) return srtString
+      if(hiLines.length >= 3) return srtString
     }
 
 

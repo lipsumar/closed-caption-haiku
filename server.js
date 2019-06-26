@@ -9,13 +9,19 @@ const SubtitleFinder = require('./src/SubtitleFinder')
 
 let haikuGenerator = null
 
+app.use(express.static('./public'))
 
 app.post('/generate-haiku', async (req, res) => {
   const movieName = req.query.movieName.trim().toLowerCase()
   let haiku = null
   try{
     haiku = await haikuGenerator.generate(movieName)
-    res.send(haiku || {error: 'cant generate haiku for this one'})
+    if(haiku){
+      res.send({haiku})
+    }else{
+      res.send({error: 'cant generate haiku for this one'})
+    }
+    
   }catch(err){
     res.status(500).send(err.message)
     console.log(err)
