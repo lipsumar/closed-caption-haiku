@@ -1,0 +1,25 @@
+{
+  "name": "closed-caption-haiku",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.0.1"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "lodash.samplesize": "^4.2.0",
+    "lodash.uniq": "^4.5.0",
+    "opensubtitles-api": "^5.0.1",
+    "scrap-subtitles": "^2.1.0"
+  }
+}
