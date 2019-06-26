@@ -12,7 +12,8 @@ class SubtitleFinder {
   async find(movieName) {
     console.log(`Find "${movieName}"`)
     for(let i=0; i<this.strategies.length; i++){
-      console.log(`Strategy #${i}`)
+      const strategy = this.strategies[i]
+      console.log(`Strategy #${i} - ${strategy.constructor.name}`)
       let srtString = null
       try{
         srtString = await this.strategies[i].findOne(movieName)
@@ -24,7 +25,10 @@ class SubtitleFinder {
       
       if(srtString){
         console.log('=> FOUND!')
-        return lib.parseSrt(srtString)
+        return {
+          srtLines: lib.parseSrt(srtString),
+          strategy: strategy.constructor.name
+        }
       }
       console.log('=> Not found')
     }

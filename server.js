@@ -7,14 +7,11 @@ const HaikuGenerator = require('./src/HaikuGenerator')
 const CacheService = require('./src/CacheService')
 const SubtitleFinder = require('./src/SubtitleFinder')
 
-const cacheService = new CacheService()
-const subtitleFinder = new SubtitleFinder()
-
-const haikuGenerator = new HaikuGenerator(cacheService, subtitleFinder)
+let haikuGenerator = null
 
 
 app.post('/generate-haiku', async (req, res) => {
-  const movieName = req.query.movieName
+  const movieName = req.query.movieName.trim().toLowerCase()
   let haiku = null
   try{
     haiku = await haikuGenerator.generate(movieName)
@@ -25,6 +22,20 @@ app.post('/generate-haiku', async (req, res) => {
   }
 })
 
-app.listen(PORT, () => {
-  console.log(`Listening on ${PORT}`)
-})
+async function start(){
+
+  console.log('Starting...')
+
+  const cacheService = new CacheService()
+  await cacheService.initialize()
+  const subtitleFinder = new SubtitleFinder()
+
+  haikuGenerator = new HaikuGenerator(cacheService, subtitleFinder)
+
+  app.listen(PORT, () => {
+    console.log(`Ready, listening on ${PORT}`)
+  })
+}
+
+start()
+
