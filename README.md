@@ -55,3 +55,9 @@ and import any backup:
 ```bash
 $ mongorestore --host localhost:27017 --gzip --db cchaiku --archive=/backups/cchaiku-dump-<date>.gz
 ```
+
+## Credits
+
+CSS was mostly copy/pasted from these 2 excellent snippets:
+* https://codepen.io/anatravas/pen/mOyNWR
+* http://aleclownes.com/2017/02/01/crt-display.html
