@@ -33,7 +33,7 @@ class OpenSubtitlesStrategy {
       current = entries.shift()
       if(!current) return null
 
-      console.log('try', current.filename)
+      console.log('👉 ', current.filename)
       const srtString = await this.getUrlContent(current.url)
       const lines = lib.parseSrt(srtString)
       console.log(`=> ${lines.length} lines`)
