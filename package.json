@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build": "lessc --js public/less/style.less public/css/style.css",
-    "backup:create": "BU_FILE=cchaiku-dump-$(date +%Y-%m-%dT%H:%M:%S).gz ; ssh dokku \"dokku mongo:export cchaiku > $BU_FILE\" && scp dokku:/root/$BU_FILE ./backups/"
+    "build": "lessc --js public/less/style.less public/css/style.css"
   },
   "keywords": [],
   "author": "",
