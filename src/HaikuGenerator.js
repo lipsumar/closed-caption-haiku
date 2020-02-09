@@ -17,6 +17,7 @@ class HaikuGenerator {
 
     const startDate = new Date()
     const result = await this.subtitleFinder.find(movieName)
+    if (!result) return null
     if (!result.srtLines) return null
 
     const hiLines = lib.filterHILines(result.srtLines)
