@@ -16,6 +16,8 @@ services:
     image: mongo
     networks: 
       - internal
+    labels: 
+      - "traefik.enable=false"
 
 networks:
   traefik-external:
