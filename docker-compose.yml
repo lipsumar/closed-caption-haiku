@@ -14,7 +14,7 @@ services:
     depends_on:
       - mongo
     volumes:
-      - /mnt/volume_lipsumar_io_main/cc-haiku/haiku-images:/usr/src/app/public/haiku-images
+      - /mnt/volume_lipsumar_io_main/cc-haiku/haiku-images/:/usr/src/app/public/haiku-images
   mongo:
     image: mongo
     networks:
@@ -22,7 +22,7 @@ services:
     labels:
       - "traefik.enable=false"
     volumes:
-      - /mnt/volume_lipsumar_io_main/cc-haiku/db:/data/db
+      - /mnt/volume_lipsumar_io_main/cc-haiku/db/:/data/db
     #ports:
     #  - 27017:27017
   image_service:
