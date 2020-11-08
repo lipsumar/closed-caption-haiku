@@ -30,7 +30,7 @@ services:
     labels:
       - "traefik.enable=false"
 networks:
-   traefik-external:
-     external: true
+  traefik-external:
+    external: true
   internal:
     external: false
