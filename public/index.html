@@ -12,10 +12,8 @@
     <h1>
       <span>[CLOSED CAPTION WHISPERS]</span>
     </h1>
-    <p>
-      <span>
-        creates haikus using non-verbal closed captions from movies or TV shows
-      </span>
+    <p class="subtitle">
+      <span>create haikus using closed captions from movies or TV shows</span>
     </p>
 
     <form action="/generate-haiku" method="post">
@@ -25,12 +23,39 @@
       <input type="text" name="movieName" id="movieName" autofocus />
       <button type="submit">Make a Haiku →</button>
     </form>
+
+    <h2><span>How does this work?</span></h2>
+    <div class="container">
+      <p>
+        Once you give a movie or serie title, we try to find closed caption
+        (aka. subtitles) files for it, specifically files that are meant for the
+        hearing impaired.
+      </p>
+      <p>
+        These files include captions for loud noises, sound effects and music;
+        you probably already seen such captions: [LOUD BANG] or [MUSIC
+        INTENSIFIES]
+      </p>
+      <p>
+        These captions are extracted and a haiku is composed randomly. If it's
+        possible, the haiku will follow the rule of 5 syllables for the first
+        sentence, then 7, then 5.
+      </p>
+      <br /><br />
+      <p style="text-align: center">
+        Made by
+        <a href="https://twitter.com/lipsumar" target="_blank">@lipsumar</a>
+      </p>
+      <br /><br />
+    </div>
+
     <script>
       (() => {
         const formEl = document.querySelector("form");
         formEl.addEventListener("submit", (e) => {
           e.preventDefault();
-          const movieName = formEl.querySelector("input").value;
+          const movieName = formEl.querySelector("input").value.trim();
+          if (!movieName) return;
           formEl.innerHTML = `<div class="loading"><span>[COMPUTER WORKING...]</span></div>`;
           console.log(movieName);
           fetch(formEl.action + "?movieName=" + encodeURIComponent(movieName), {
@@ -44,7 +69,7 @@
             })
             .catch((err) => {
               formEl.innerHTML =
-                "Oops, can’t find closed captions for this one";
+                'Oops, can’t find closed captions for this one<br><a href="/">Try another title</a>';
             });
         });
       })();
