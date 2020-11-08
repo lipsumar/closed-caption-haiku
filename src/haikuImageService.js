@@ -6,7 +6,7 @@ const path = require("path");
 async function haikuImageService(haiku, options) {
   const id = nanoid();
 
-  const url = `http://localhost:5000/img?t1=${encodeURIComponent(
+  const url = `http://image_service:5000/img?t1=${encodeURIComponent(
     haiku[0]
   )}&t2=${encodeURIComponent(haiku[1])}&t3=${encodeURIComponent(haiku[2])}&bg=${
     options.background
