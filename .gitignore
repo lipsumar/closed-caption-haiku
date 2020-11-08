@@ -2,4 +2,10 @@ node_modules/
 .env
 notes.md
 backups/
+.DS_Store
 
+public/haiku-images/*
+!public/haiku-images/.gitkeep
+
+public/video/tv-static-1.mov
+public/video/tv-static-2.mp4

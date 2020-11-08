@@ -16,13 +16,22 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "consolidate": "^0.16.0",
     "dotenv": "^8.0.0",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "lessc": "^1.0.2",
+    "lodash.sample": "^4.2.1",
     "lodash.samplesize": "^4.2.0",
+    "lodash.shuffle": "^4.2.0",
     "lodash.uniq": "^4.5.0",
+    "lodash.upperfirst": "^4.3.1",
     "mongodb": "^3.2.7",
+    "nanoid": "^3.1.16",
+    "node-fetch": "^2.6.1",
     "opensubtitles-api": "^5.0.1",
-    "scrap-subtitles": "^2.2.1"
+    "scrap-subtitles": "^2.2.1",
+    "syllable": "^4.1.0"
   }
 }

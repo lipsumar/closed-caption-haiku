@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   app:
@@ -11,17 +11,26 @@ services:
     networks:
       - traefik-external
       - internal
-    depends_on: 
+    depends_on:
       - mongo
   mongo:
     image: mongo
-    networks: 
+    networks:
       - internal
-    labels: 
+    labels:
       - "traefik.enable=false"
-
+    #ports:
+    #  - 27017:27017
+  image_service:
+    build: ./src/image-generation/
+    ports:
+      - 5000:5000
+    networks:
+      - internal
+    labels:
+      - "traefik.enable=false"
 networks:
-  traefik-external:
-    external: true
+   traefik-external:
+     external: true
   internal:
     external: false
