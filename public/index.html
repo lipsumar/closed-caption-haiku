@@ -63,9 +63,7 @@
           })
             .then((resp) => resp.json())
             .then((resp) => {
-              window.location.href = `/haiku/${
-                resp.id
-              }?movieName=${encodeURIComponent(movieName)}`;
+              window.location.href = `/haiku/${resp.id}`;
             })
             .catch((err) => {
               formEl.innerHTML =
