@@ -4,7 +4,7 @@ services:
   app:
     build: .
     labels:
-      - "traefik.http.routers.cc-haiku.rule=Host(`cc-whispers.lipsumar.io`)"
+      - "traefik.http.routers.cc-haiku.rule=Host(`cc-haiku.lipsumar.io`)"
       - "traefik.http.routers.cc-haiku.tls.certresolver=le"
       - "traefik.http.routers.cc-haiku.entrypoints=websecure"
       - "traefik.docker.network=traefik-external"
