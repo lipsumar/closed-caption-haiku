@@ -52,6 +52,10 @@ const bgImages = {
   ],
 };
 
+app.get("/", (req, res) => {
+  res.render("index.ejs", { haiku: null });
+});
+
 app.post("/generate-haiku", async (req, res) => {
   const movieName = (req.body.movieName || req.query.movieName)
     .trim()
@@ -94,7 +98,7 @@ app.post("/generate-haiku", async (req, res) => {
 app.get("/haiku/:id", async (req, res) => {
   const id = req.params.id;
   const haiku = await haikuCache.get(id);
-  res.render("haiku.ejs", {
+  res.render("index.ejs", {
     imageUrl: `/haiku-images/${id}.jpg`,
     haiku,
   });
