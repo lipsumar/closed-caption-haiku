@@ -199,18 +199,20 @@
           });
       });
 
+      <% if (haiku){ %>
       document.querySelector("#again").addEventListener("click", (e) => {
-          e.preventDefault();
-          const movieName = <%-JSON.stringify(haiku.movie)%>;
+        e.preventDefault();
+        const movieName = <%-JSON.stringify(haiku.movie)%>;
 
-          fetch("/generate-haiku/?movieName=" + encodeURIComponent(movieName), {
-            method: "post",
-          })
-            .then((resp) => resp.json())
-            .then((resp) => {
-              window.location.href = `/haiku/${resp.id}`;
-            });
-        });
+        fetch("/generate-haiku/?movieName=" + encodeURIComponent(movieName), {
+          method: "post",
+        })
+          .then((resp) => resp.json())
+          .then((resp) => {
+            window.location.href = `/haiku/${resp.id}`;
+          });
+      });
+      <%}%>
 
       document.querySelector("#facebook").addEventListener("click", (e) => {
         e.preventDefault();
