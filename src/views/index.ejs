@@ -14,12 +14,12 @@
     />
     <meta
       name="twitter:image"
-      content="https://cc-whispers.lipsumar.io<%= imageUrl %>"
+      content="https://cc-haiku.lipsumar.io<%= imageUrl %>"
     />
 
     <meta
       property="og:url"
-      content="https://cc-whispers.lipsumar.io/haiku/<%=haiku.movieName%>"
+      content="https://cc-haiku.lipsumar.io/haiku/<%=haiku.movieName%>"
     />
     <meta
       property="og:title"
@@ -27,7 +27,7 @@
     />
     <meta
       property="og:image"
-      content="https://cc-whispers.lipsumar.io<%= imageUrl %>"
+      content="https://cc-haiku.lipsumar.io<%= imageUrl %>"
     />
     <meta property="og:image:width" content="1280" />
     <meta property="og:image:height" content="720" />
@@ -216,7 +216,7 @@
       document.querySelector("#facebook").addEventListener("click", (e) => {
         e.preventDefault();
         window.open(
-          "https://www.facebook.com/share.php?u=<%-encodeURIComponent('https://cc-whispers.lipsumar.io/haiku/'+haiku.movieName) %>",
+          "https://www.facebook.com/share.php?u=<%-encodeURIComponent('https://cc-haiku.lipsumar.io/haiku/'+haiku.movieName) %>",
           "fb-share",
           "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=600,height=600,left=300,top=100"
         );
@@ -225,7 +225,7 @@
       document.querySelector("#twitter").addEventListener("click", (e) => {
         e.preventDefault();
         window.open(
-          "https://twitter.com/intent/tweet?url=<%-encodeURIComponent('https://cc-whispers.lipsumar.io/haiku/'+haiku.movieName) %>",
+          "https://twitter.com/intent/tweet?url=<%-encodeURIComponent('https://cc-haiku.lipsumar.io/haiku/'+haiku.movieName) %>",
           "tw-share",
           "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=600,height=600,left=300,top=100"
         );
