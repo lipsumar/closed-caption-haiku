@@ -28,7 +28,7 @@
     "lodash.uniq": "^4.5.0",
     "lodash.upperfirst": "^4.3.1",
     "mongodb": "^3.2.7",
-    "nanoid": "^3.1.16",
+    "nanoid": "^3.1.31",
     "node-fetch": "^2.6.1",
     "opensubtitles-api": "^5.0.1",
     "scrap-subtitles": "^2.2.1",
