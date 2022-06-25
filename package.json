@@ -29,7 +29,7 @@
     "lodash.upperfirst": "^4.3.1",
     "mongodb": "^3.2.7",
     "nanoid": "^3.1.16",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "opensubtitles-api": "^5.0.1",
     "scrap-subtitles": "^2.2.1",
     "syllable": "^4.1.0"
